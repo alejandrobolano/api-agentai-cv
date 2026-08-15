@@ -58,6 +58,43 @@ Informa si el proceso de la API está disponible. El frontend puede utilizarlo p
 }
 ```
 
+### `POST /api/chat`
+
+Acepta una pregunta de hasta 2000 caracteres y un identificador de conversación opcional.
+
+```json
+{
+  "message": "¿Qué experiencia tiene Alejandro con Angular?",
+  "conversationId": "3d6f0a45-2601-46a6-9056-8f358f751228"
+}
+```
+
+La respuesta no streaming prevista utiliza este contrato:
+
+```json
+{
+  "conversationId": "3d6f0a45-2601-46a6-9056-8f358f751228",
+  "message": {
+    "role": "assistant",
+    "content": "..."
+  }
+}
+```
+
+Los errores utilizan una estructura estable:
+
+```json
+{
+  "error": {
+    "code": "INVALID_CHAT_REQUEST",
+    "message": "The chat request is invalid.",
+    "details": []
+  }
+}
+```
+
+Hasta integrar el proveedor de IA, las solicitudes válidas responden con HTTP 501 y `CHAT_NOT_IMPLEMENTED`.
+
 ## Estado
 
 La base HTTP está preparada. La integración con OpenAI, el chat y el conocimiento del CV se incorporarán en iteraciones separadas.
