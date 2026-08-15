@@ -35,6 +35,8 @@ Copy-Item .env.example .env
 pnpm dev
 ```
 
+El script de desarrollo carga `.env` explícitamente. La API no arranca si falta `ALLOWED_ORIGIN` para evitar una configuración CORS ambigua.
+
 ## Verificación
 
 ```bash
