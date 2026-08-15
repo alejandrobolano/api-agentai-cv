@@ -2,7 +2,7 @@
   "name": "api-agentai-cv",
   "version": "0.1.0",
   "private": true,
-  "description": "API para el agente de IA del portfolio de Alejandro Bolaño",
+  "description": "API para el agente de IA del portfolio de Alejandro Bolaño (https://alejandrobolano.com)",
   "type": "module",
   "engines": {
     "node": ">=22.0.0"
