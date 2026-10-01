@@ -4,6 +4,7 @@ import rateLimit from '@fastify/rate-limit';
 import Fastify, { type FastifyInstance } from 'fastify';
 
 import type { Environment } from '../config/environment.js';
+import { chatRoutes } from '../modules/chat/chat.routes.js';
 import { healthRoutes } from '../modules/health/health.routes.js';
 
 export async function buildApp(
@@ -22,6 +23,7 @@ export async function buildApp(
     timeWindow: '1 minute',
   });
   await app.register(healthRoutes);
+  await app.register(chatRoutes);
 
   return app;
 }
